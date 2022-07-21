@@ -21,7 +21,7 @@ function Login() {
 
   function login() {
     const accessInfo = {
-      userName: emailInput,
+      userEmail: emailInput,
       dateAccess: generateDate().formatDate,
       hourAccess: generateDate().formatHours,
     };
