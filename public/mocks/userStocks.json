@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "company": "Empresa1",
+    "amount": 100,
+    "price": 350,
+    "currency": "BRL"
+  },
+  {
+    "id": "2",
+    "company": "Empresa2",
+    "amount": 100,
+    "price": 350,
+    "currency": "BRL"
+  },
+  {
+    "id": "3",
+    "company": "Empresa3",
+    "amount": 100,
+    "price": 350,
+    "currency": "BRL"
+  }
+]
