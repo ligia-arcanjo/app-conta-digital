@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import generateDate from '../utils/generateDate';
+import ButtonLogin from '../components/ButtonLogin';
 
 function Login() {
-  const navigate = useNavigate();
   const [isDisabled, setIsDisabled] = useState(true);
   const [emailInput, setEmailInput] = useState('');
   const [passwordInput, setPasswordInput] = useState('');
@@ -18,17 +16,6 @@ function Login() {
       setIsDisabled(true);
     }
   }, [emailInput, passwordInput]);
-
-  function login() {
-    const accessInfo = {
-      userEmail: emailInput,
-      dateAccess: generateDate().formatDate,
-      hourAccess: generateDate().formatHours,
-    };
-
-    localStorage.setItem('accessInfo', JSON.stringify(accessInfo));
-    navigate('acoes');
-  }
 
   return (
     <form>
@@ -54,7 +41,7 @@ function Login() {
         />
       </label>
 
-      <button hidden={isDisabled} onClick={login} type="button">Entrar</button>
+      <ButtonLogin isDisabled={isDisabled} userEmail={emailInput} />
     </form>
   );
 }
