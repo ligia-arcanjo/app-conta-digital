@@ -1,7 +1,7 @@
 export async function getAllStocks() {
   try {
     const response = await fetch(
-      './stocks.json',
+      './mocks/stocks.json',
       { headers: { Accept: 'application/json' } },
     );
 
@@ -16,7 +16,7 @@ export async function getAllStocks() {
 export async function getUserStocks() {
   try {
     const response = await fetch(
-      './userStocks.json',
+      './mocks/userStocks.json',
       { headers: { Accept: 'application/json' } },
     );
 

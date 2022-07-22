@@ -30,9 +30,9 @@ function UserStocks() {
           {
             userStockList ? userStockList.map((stock) => (
               <tr key={stock.id}>
-                <th>{stock.empresa}</th>
-                <th>{stock.quantidade}</th>
-                <th>{`R$ ${stock.valor}`}</th>
+                <th>{stock.company}</th>
+                <th>{stock.amount}</th>
+                <th>{`R$ ${stock.price}`}</th>
                 <th>
                   <Link to="/compra-e-venda">Comprar</Link>
                   <Link to="/compra-e-venda">Vender</Link>
