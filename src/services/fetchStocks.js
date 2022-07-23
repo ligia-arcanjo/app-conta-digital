@@ -13,17 +13,56 @@ export async function getAllStocks() {
   }
 }
 
-export async function getUserStocks() {
-  try {
-    const response = await fetch(
-      './mocks/userStocks.json',
-      { headers: { Accept: 'application/json' } },
-    );
+export async function getUserStocks(token) {
+  if (token) {
+    try {
+      const response = await fetch(
+        './mocks/userStocks.json',
+        { headers: { Accept: 'application/json' } },
+      );
+      const data = await response.json();
 
-    const data = await response.json();
-
-    return data;
-  } catch (error) {
-    return [];
+      return data;
+    } catch (error) {
+      return [];
+    }
   }
+
+  throw new Error('Token not found');
+}
+
+export async function getUserStockById(token, id) {
+  if (token) {
+    try {
+      const response = await fetch(
+        '../mocks/userStocks.json',
+        { headers: { Accept: 'application/json' } },
+      );
+      const data = await response.json();
+
+      return data.filter((stock) => stock.id === id);
+    } catch (error) {
+      return [];
+    }
+  }
+
+  throw new Error('Token not found');
+}
+
+export async function getStockById(token, id) {
+  if (token) {
+    try {
+      const response = await fetch(
+        '../mocks/stocks.json',
+        { headers: { Accept: 'application/json' } },
+      );
+      const data = await response.json();
+
+      return data.filter((stock) => stock.id === id);
+    } catch (error) {
+      return [];
+    }
+  }
+
+  throw new Error('Token not found');
 }

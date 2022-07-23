@@ -7,7 +7,8 @@ function UserStocks() {
 
   useEffect(() => {
     const getStockList = async () => {
-      const stocks = await getUserStocks();
+      const accessInfo = JSON.parse(localStorage.getItem('accessInfo'));
+      const stocks = await getUserStocks(accessInfo.token);
       setUserStockList(stocks);
     };
 
@@ -26,7 +27,6 @@ function UserStocks() {
             <th>Valor</th>
             <th>Negociar</th>
           </tr>
-
           {
             userStockList ? userStockList.map((stock) => (
               <tr key={stock.id}>
@@ -34,8 +34,8 @@ function UserStocks() {
                 <th>{stock.amount}</th>
                 <th>{`R$ ${stock.price}`}</th>
                 <th>
-                  <Link to="/compra-e-venda">Comprar</Link>
-                  <Link to="/compra-e-venda">Vender</Link>
+                  <Link to={`/compra-e-venda/${stock.id}`}>Comprar</Link>
+                  <Link to={`/compra-e-venda/${stock.id}`}>Vender</Link>
                 </th>
               </tr>
             )) : null

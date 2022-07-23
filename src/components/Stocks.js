@@ -26,7 +26,6 @@ function Stocks() {
             <th>Valor</th>
             <th>Negociar</th>
           </tr>
-
           {
             stockList ? stockList.map((stock) => (
               <tr key={stock.id}>
@@ -34,7 +33,7 @@ function Stocks() {
                 <th>{stock.amount}</th>
                 <th>{`R$ ${stock.price}`}</th>
                 <th>
-                  <Link to="/compra-e-venda">Comprar</Link>
+                  <Link to={`/compra/${stock.id}`}>Comprar</Link>
                 </th>
               </tr>
             )) : null
