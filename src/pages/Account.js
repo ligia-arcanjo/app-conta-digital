@@ -31,15 +31,14 @@ function Account() {
       <div>
         <button
           type="button"
-          onClick={() => navigate('deposito')}
+          onClick={() => navigate('/deposito')}
         >
           Depositar
         </button>
 
         <button
-          accountBalance={accountBalance}
           type="button"
-          onClick={() => navigate('transferencia')}
+          onClick={() => navigate('/transferencia')}
         >
           Transferir
         </button>
