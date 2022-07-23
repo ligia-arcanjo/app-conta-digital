@@ -1,43 +1,90 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import ButtonReturn from '../components/ButtonReturn';
+import Header from '../components/Header';
+import { getUserStockById } from '../services/fetchStocks';
 
 function Trade() {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const [stock, setStock] = useState();
+  const [inputBuyQuantity, setInputBuyQuantity] = useState();
+  const [inputSaleQuantity, setInputSaleQuantity] = useState();
+  const [valueIsValid, setValueIsValid] = useState(true);
+
+  useEffect(() => {
+    const getStock = async () => {
+      const accessInfo = JSON.parse(localStorage.getItem('accessInfo'));
+      const stocks = await getUserStockById(accessInfo.token, id);
+      setStock(stocks);
+    };
+
+    getStock();
+  }, []);
+
+  function confirmTransaction() {
+    if (inputBuyQuantity < 0) {
+      return setValueIsValid(false);
+    }
+
+    if (inputSaleQuantity < 0 || inputSaleQuantity > stock[0].amount) {
+      return setValueIsValid(false);
+    }
+
+    return navigate('/logout');
+  }
+
   return (
     <>
-      <span>User</span>
+      <Header />
 
-      <h1>Comprar e Vender Ações</h1>
+      <h1>Negociar minhas ações</h1>
       <table>
         <tbody>
           <tr>
             <th>Ação</th>
-            <th>Quantidade</th>
+            <th>Quantidade na sua carteira</th>
             <th>Valor</th>
-            <th>Negociar</th>
           </tr>
-          <tr>
-            <th>AZUL4</th>
-            <th>100</th>
-            <th>350,00</th>
-            <th>
-              <Link to="/compra-e-venda">Comprar</Link>
-              <Link to="/compra-e-venda">Vender</Link>
-            </th>
-          </tr>
+          {
+            stock ? stock.map((s) => (
+              <tr key={s.id}>
+                <th>{s.company}</th>
+                <th>{s.amount}</th>
+                <th>{`R$ ${s.price}`}</th>
+              </tr>
+            )) : null
+          }
         </tbody>
       </table>
 
       <div>
         <button type="button">Comprar</button>
-        <button type="button">Vender</button>
+        <input
+          type="number"
+          placeholder="quantidade"
+          onChange={({ target: { value } }) => setInputBuyQuantity(value)}
+        />
       </div>
 
       <div>
-        <button type="button">Voltar</button>
-        <button type="button">Confirmar</button>
+        <button type="button">Vender</button>
+        <input
+          type="number"
+          placeholder="quantidade"
+          onChange={({ target: { value } }) => setInputSaleQuantity(value)}
+        />
       </div>
 
-      <button type="button">Acessar conta</button>
+      <div>
+        { !valueIsValid && <p>A quantidade não á válida para esta transação</p>}
+        <button onClick={confirmTransaction} type="button">Confirmar</button>
+      </div>
+
+      <div>
+        <ButtonReturn />
+        <button onClick={() => navigate('/conta')} type="button">Acessar conta</button>
+      </div>
     </>
   );
 }
