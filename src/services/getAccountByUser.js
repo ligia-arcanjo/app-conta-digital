@@ -1,4 +1,8 @@
-export default async function getAccountByUser(token) {
+import { getUserData } from '../utils/userData';
+
+export default async function getAccountByUser() {
+  const { token } = getUserData();
+
   if (token) {
     try {
       const response = await fetch(
