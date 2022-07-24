@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ButtonReturn from '../components/ButtonReturn';
+import Header from '../components/Header';
 import getAccountByUser from '../services/getAccountByUser';
 
 function Transfer() {
@@ -30,6 +31,7 @@ function Transfer() {
 
   return (
     <>
+      <Header />
       <h3>Transferência</h3>
       <label htmlFor="value-transfer">
         Informe o valor desejado:

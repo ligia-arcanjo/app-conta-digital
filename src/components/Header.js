@@ -1,15 +1,10 @@
 import React from 'react';
+import { getUserData } from '../utils/userData';
 
 function Header() {
-  function getUser() {
-    const accessInfo = JSON.parse(localStorage.getItem('accessInfo'));
-
-    return accessInfo.userEmail;
-  }
-
   return (
     <header>
-      <span>{getUser()}</span>
+      <span>{getUserData().userEmail}</span>
     </header>
   );
 }

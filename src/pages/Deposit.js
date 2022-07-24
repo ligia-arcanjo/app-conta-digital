@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ButtonReturn from '../components/ButtonReturn';
+import Header from '../components/Header';
 
 function Deposit() {
   const navigate = useNavigate();
@@ -9,6 +10,8 @@ function Deposit() {
 
   return (
     <>
+      <Header />
+
       <h3>Depósito</h3>
       <label htmlFor="value">
         Informe o valor desejado:

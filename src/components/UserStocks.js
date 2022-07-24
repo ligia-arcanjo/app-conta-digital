@@ -7,8 +7,7 @@ function UserStocks() {
 
   useEffect(() => {
     const getStockList = async () => {
-      const accessInfo = JSON.parse(localStorage.getItem('accessInfo'));
-      const stocks = await getUserStocks(accessInfo.token);
+      const stocks = await getUserStocks();
       setUserStockList(stocks);
     };
 

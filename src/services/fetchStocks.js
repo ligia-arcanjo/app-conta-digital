@@ -1,3 +1,5 @@
+import { getUserData } from '../utils/userData';
+
 export async function getAllStocks() {
   try {
     const response = await fetch(
@@ -13,7 +15,9 @@ export async function getAllStocks() {
   }
 }
 
-export async function getUserStocks(token) {
+export async function getUserStocks() {
+  const { token } = getUserData();
+
   if (token) {
     try {
       const response = await fetch(
@@ -31,7 +35,9 @@ export async function getUserStocks(token) {
   throw new Error('Token not found');
 }
 
-export async function getUserStockById(token, id) {
+export async function getUserStockById(id) {
+  const { token } = getUserData();
+
   if (token) {
     try {
       const response = await fetch(
@@ -49,7 +55,9 @@ export async function getUserStockById(token, id) {
   throw new Error('Token not found');
 }
 
-export async function getStockById(token, id) {
+export async function getStockById(id) {
+  const { token } = getUserData();
+
   if (token) {
     try {
       const response = await fetch(

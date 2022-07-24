@@ -10,8 +10,7 @@ function Account() {
 
   useEffect(() => {
     const getAccount = async () => {
-      const accessInfo = JSON.parse(localStorage.getItem('accessInfo'));
-      const accountData = await getAccountByUser(accessInfo.token);
+      const accountData = await getAccountByUser();
 
       setAccountBalance(accountData.accountBalance);
     };

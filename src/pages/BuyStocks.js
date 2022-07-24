@@ -13,8 +13,7 @@ function BuyStocks() {
 
   useEffect(() => {
     const getStock = async () => {
-      const accessInfo = JSON.parse(localStorage.getItem('accessInfo'));
-      const stockById = await getStockById(accessInfo.token, id);
+      const stockById = await getStockById(id);
       setStock(stockById);
     };
 
