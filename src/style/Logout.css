@@ -1,0 +1,27 @@
+.logout-card {
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 15px;
+  align-self: center;
+  background-color: rgba(231, 222, 222, 0.5);
+  flex-direction: column;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  overflow: hidden;
+}
+
+.logout-card input {
+  width: 94%;
+}
+
+.logout-card button {
+  width: fit-content;
+  align-self: center;
+}
+
+.logout-card .button-row button{
+  margin: 0 10px;
+}

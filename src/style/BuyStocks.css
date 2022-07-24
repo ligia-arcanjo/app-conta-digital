@@ -1,0 +1,27 @@
+.buystocks-card {
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 15px;
+  align-self: center;
+  background-color: rgba(231, 222, 222, 0.5);
+  flex-direction: column;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  overflow: hidden;
+}
+
+.buystocks-card input {
+  width: 94%;
+}
+
+.buystocks-card button {
+  width: fit-content;
+  align-self: center;
+}
+
+.buystocks-card .button-row button{
+  margin-right: 10px;
+}

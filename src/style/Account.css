@@ -1,0 +1,29 @@
+.account-card {
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 15px;
+  align-self: center;
+  background-color: rgba(231, 222, 222, 0.5);
+  flex-direction: column;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  overflow: hidden;
+}
+
+.account-balance {
+  display: flex;
+  flex-direction: column;
+  margin: 2em 0;
+}
+
+.account-balance span {
+  margin: 10px;
+  font-size: large;
+}
+
+.account-card .button-row button {
+  margin-right: 10px;
+}

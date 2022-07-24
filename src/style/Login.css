@@ -1,0 +1,21 @@
+#root > .card-login{
+  background-color: black;
+}
+
+.form-login {
+  margin: 0;
+  width: 90%;
+}
+
+.card-login {
+  align-self: center;
+  background-color: rgba(231, 222, 222, 0.5);
+  flex-direction: column;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  width: 30vw;
+  overflow: hidden;
+  padding: 15px;
+  color: rgb(204, 203, 203);
+}
