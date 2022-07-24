@@ -23,7 +23,7 @@ function ButtonLogin({ isDisabled, userEmail }) {
 
     if (validate.status === 200) {
       saveLoginStorage(validate.token);
-      return navigate('acoes');
+      return navigate('/acoes');
     }
 
     throw new Error('Invalid email or password');
