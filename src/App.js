@@ -8,6 +8,7 @@ import Deposit from './pages/Deposit';
 import Transfer from './pages/Transfer';
 import Logout from './pages/Logout';
 import BuyStocks from './pages/BuyStocks';
+import './style/App.css';
 
 function App() {
   return (

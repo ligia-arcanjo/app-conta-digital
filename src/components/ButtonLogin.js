@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import validateLogin from '../services/validateLogin';
 import generateDate from '../utils/generateDate';
 
+import '../style/Buttons.css';
+
 function ButtonLogin({ isDisabled, userEmail }) {
   const navigate = useNavigate();
 
@@ -19,6 +21,10 @@ function ButtonLogin({ isDisabled, userEmail }) {
   }
 
   async function login() {
+    if (isDisabled) {
+      return false;
+    }
+
     const validate = await validateLogin();
 
     if (validate.status === 200) {
@@ -30,7 +36,14 @@ function ButtonLogin({ isDisabled, userEmail }) {
   }
 
   return (
-    <button data-testid="button-login" hidden={isDisabled} onClick={login} type="button">Entrar</button>
+    <button
+      data-testid="button-login"
+      onClick={login}
+      type="button"
+      className={`button button-login ${isDisabled ? 'disabled' : ''}`}
+    >
+      ENTRAR
+    </button>
   );
 }
 

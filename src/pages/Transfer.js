@@ -4,6 +4,8 @@ import ButtonReturn from '../components/ButtonReturn';
 import Header from '../components/Header';
 import getAccountByUser from '../services/getAccountByUser';
 
+import '../style/Transfer.css';
+
 function Transfer() {
   const navigate = useNavigate();
   const [transferValue, setTransferValue] = useState();
@@ -21,8 +23,9 @@ function Transfer() {
     getAccount();
   });
 
+  const validAmount = () => Boolean(transferValue) && transferValue <= accountBalance;
   function confirmTransaction() {
-    if (transferValue >= accountBalance) {
+    if (!validAmount()) {
       return setValueIsCorrect(false);
     }
 
@@ -31,25 +34,33 @@ function Transfer() {
 
   return (
     <>
-      <Header />
-      <h3>Transferência</h3>
-      <label htmlFor="value-transfer">
-        Informe o valor desejado:
-        <input
-          id="value-transfer"
-          type="number"
-          onChange={({ target: { value } }) => setTransferValue(value)}
-          placeholder="0000.00"
-        />
-      </label>
+      <Header hideAccountBtn />
+      <div className="transfer-card">
+        <h3>Transferência</h3>
+        <label htmlFor="value-transfer">
+          Informe o valor desejado:
+          <input
+            id="value-transfer"
+            type="number"
+            onChange={({ target: { value } }) => setTransferValue(value)}
+            placeholder="0000.00"
+          />
+        </label>
 
-      {!valueIsCorrect && <span>Você não possui saldo para esta transferência!</span>}
+        {!valueIsCorrect && <span className="span-alert">Você não possui saldo para esta transferência!</span>}
 
-      {
-        transferValue && <button onClick={confirmTransaction} type="button">Confirmar</button>
-      }
+        <div className="button-row">
+          <ButtonReturn />
 
-      <ButtonReturn />
+          <button
+            className={`button-secondary${validAmount() ? '' : ' disabled'}`}
+            onClick={confirmTransaction}
+            type="button"
+          >
+            Confirmar
+          </button>
+        </div>
+      </div>
     </>
   );
 }

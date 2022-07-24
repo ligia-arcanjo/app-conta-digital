@@ -3,31 +3,47 @@ import { useNavigate } from 'react-router-dom';
 import ButtonReturn from '../components/ButtonReturn';
 import Header from '../components/Header';
 
+import '../style/Deposit.css';
+
 function Deposit() {
   const navigate = useNavigate();
   const [depositValue, setDepositValue] = useState();
-  const confirmTransaction = () => navigate('/logout');
+  const validAmount = () => Boolean(depositValue) && depositValue > 0;
+  const confirmTransaction = () => {
+    if (!validAmount()) {
+      return false;
+    }
+
+    return navigate('/logout');
+  };
 
   return (
     <>
-      <Header />
+      <Header hideAccountBtn />
 
-      <h3>Depósito</h3>
-      <label htmlFor="value">
-        Informe o valor desejado:
-        <input
-          id="value"
-          type="number"
-          onChange={({ target: { value } }) => setDepositValue(value)}
-          placeholder="0000.00"
-        />
-      </label>
+      <div className="deposit-card">
+        <h3>Depósito</h3>
+        <label htmlFor="value">
+          Informe o valor desejado:
+          <input
+            id="value"
+            type="number"
+            onChange={({ target: { value } }) => setDepositValue(value)}
+            placeholder="0000.00"
+          />
+        </label>
 
-      {
-        depositValue > 0 && <button onClick={confirmTransaction} type="button">Confirmar</button>
-      }
-
-      <ButtonReturn />
+        <div className="button-row">
+          <ButtonReturn />
+          <button
+            className={`button-secondary${validAmount() ? '' : ' disabled'}`}
+            onClick={confirmTransaction}
+            type="button"
+          >
+            Confirmar
+          </button>
+        </div>
+      </div>
     </>
   );
 }

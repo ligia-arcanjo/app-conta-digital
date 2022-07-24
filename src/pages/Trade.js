@@ -4,6 +4,8 @@ import ButtonReturn from '../components/ButtonReturn';
 import Header from '../components/Header';
 import { getUserStockById } from '../services/fetchStocks';
 
+import '../style/Trade.css';
+
 function Trade() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -37,15 +39,16 @@ function Trade() {
     <>
       <Header />
 
-      <h1>Negociar minhas ações</h1>
-      <table>
-        <tbody>
-          <tr>
-            <th>Ação</th>
-            <th>Quantidade na sua carteira</th>
-            <th>Valor</th>
-          </tr>
-          {
+      <div className="trade-card">
+        <h1>Negociar minhas ações</h1>
+        <table>
+          <tbody>
+            <tr>
+              <th>Ação</th>
+              <th>Quantidade na sua carteira</th>
+              <th>Valor</th>
+            </tr>
+            {
             stock ? stock.map((s) => (
               <tr key={s.id}>
                 <th>{s.company}</th>
@@ -54,35 +57,39 @@ function Trade() {
               </tr>
             )) : null
           }
-        </tbody>
-      </table>
+          </tbody>
+        </table>
 
-      <div>
-        <button type="button">Comprar</button>
-        <input
-          type="number"
-          placeholder="quantidade"
-          onChange={({ target: { value } }) => setInputBuyQuantity(value)}
-        />
-      </div>
+        <div>
+          <span>Comprar</span>
+          <input
+            type="number"
+            placeholder="quantidade"
+            min="0"
+            onChange={({ target: { value } }) => setInputBuyQuantity(value)}
+          />
+        </div>
 
-      <div>
-        <button type="button">Vender</button>
-        <input
-          type="number"
-          placeholder="quantidade"
-          onChange={({ target: { value } }) => setInputSaleQuantity(value)}
-        />
-      </div>
+        <div>
+          <span>Vender</span>
+          <input
+            type="number"
+            placeholder="quantidade"
+            min="0"
+            onChange={({ target: { value } }) => setInputSaleQuantity(value)}
+          />
+        </div>
 
-      <div>
-        { !valueIsValid && <p>A quantidade não á válida para esta transação</p>}
-        <button onClick={confirmTransaction} type="button">Confirmar</button>
-      </div>
-
-      <div>
-        <ButtonReturn />
-        <button onClick={() => navigate('/conta')} type="button">Acessar conta</button>
+        <div className="button-row">
+          <ButtonReturn />
+          <button
+            className={`button-secondary${valueIsValid ? '' : ' disabled'}`}
+            onClick={confirmTransaction}
+            type="button"
+          >
+            Confirmar
+          </button>
+        </div>
       </div>
     </>
   );

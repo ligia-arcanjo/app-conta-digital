@@ -1,10 +1,11 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import { hasUserData } from '../utils/userData';
+import ButtonReturn from '../components/ButtonReturn';
+import Header from '../components/Header';
+
+import '../style/Logout.css';
 
 function Logout() {
-  const navigate = useNavigate();
-
   function logout() {
     localStorage.clear();
     window.location = '/';
@@ -13,11 +14,12 @@ function Logout() {
   if (hasUserData()) {
     return (
       <>
-        <h3>Transação realizada com sucesso!</h3>
+        <Header />
+        <div className="logout-card">
+          <h3>Transação realizada com sucesso!</h3>
 
-        <button type="button" onClick={() => navigate('/acoes')}>Voltar</button>
-
-        <button onClick={logout} type="button">Sair</button>
+          <ButtonReturn />
+        </div>
       </>
     );
   }

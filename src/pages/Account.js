@@ -4,6 +4,8 @@ import ButtonReturn from '../components/ButtonReturn';
 import Header from '../components/Header';
 import getAccountByUser from '../services/getAccountByUser';
 
+import '../style/Account.css';
+
 function Account() {
   const navigate = useNavigate();
   const [accountBalance, setAccountBalance] = useState();
@@ -20,29 +22,32 @@ function Account() {
 
   return (
     <>
-      <Header />
+      <Header hideAccountBtn />
 
-      <div>
-        <span>Saldo em conta</span>
-        <span>{`R$ ${accountBalance}`}</span>
-      </div>
+      <div className="account-card">
+        <div className="account-balance">
+          <span>{`Saldo em conta: R$ ${accountBalance}`}</span>
+        </div>
 
-      <div>
-        <button
-          type="button"
-          onClick={() => navigate('/deposito')}
-        >
-          Depositar
-        </button>
+        <div className="button-row">
+          <button
+            type="button"
+            className="button-secondary"
+            onClick={() => navigate('/deposito')}
+          >
+            Depositar
+          </button>
 
-        <button
-          type="button"
-          onClick={() => navigate('/transferencia')}
-        >
-          Transferir
-        </button>
+          <button
+            type="button"
+            className="button-secondary"
+            onClick={() => navigate('/transferencia')}
+          >
+            Transferir
+          </button>
 
-        <ButtonReturn />
+          <ButtonReturn />
+        </div>
       </div>
     </>
   );

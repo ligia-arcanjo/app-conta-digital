@@ -4,12 +4,13 @@ import ButtonReturn from '../components/ButtonReturn';
 import Header from '../components/Header';
 import { getStockById } from '../services/fetchStocks';
 
+import '../style/BuyStocks.css';
+
 function BuyStocks() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [stock, setStock] = useState();
-  const [inputQuantity, setInputQuantity] = useState();
-  const [valueIsValid, setValueIsValid] = useState(true);
+  const [inputValue, setInputValue] = useState(1);
 
   useEffect(() => {
     const getStock = async () => {
@@ -20,27 +21,36 @@ function BuyStocks() {
     getStock();
   }, []);
 
-  function confirmTransaction() {
-    if (inputQuantity < 0 || inputQuantity > stock[0].amount) {
-      return setValueIsValid(false);
+  function valueIsValid() {
+    if (inputValue && stock) {
+      return inputValue > 0 && inputValue <= stock[0].amount;
     }
 
-    return navigate('/logout');
+    return false;
+  }
+
+  function confirmTransaction() {
+    if (valueIsValid()) {
+      return navigate('/logout');
+    }
+
+    return false;
   }
 
   return (
     <>
       <Header />
 
-      <h1>Comprar ações</h1>
-      <table>
-        <tbody>
-          <tr>
-            <th>Ação</th>
-            <th>Quantidade disponível</th>
-            <th>Valor</th>
-          </tr>
-          {
+      <div className="buystocks-card">
+        <h1>Comprar ações</h1>
+        <table>
+          <tbody>
+            <tr>
+              <th>Ação</th>
+              <th>Quantidade disponível</th>
+              <th>Valor</th>
+            </tr>
+            {
             stock ? stock.map((s) => (
               <tr key={s.id}>
                 <th>{s.company}</th>
@@ -49,26 +59,33 @@ function BuyStocks() {
               </tr>
             )) : null
           }
-        </tbody>
-      </table>
+          </tbody>
+        </table>
 
-      <div>
-        <button type="button">Comprar</button>
-        <input
-          type="number"
-          placeholder="quantidade"
-          onChange={({ target: { value } }) => setInputQuantity(value)}
-        />
-      </div>
+        <div>
+          <input
+            type="number"
+            placeholder="quantidade"
+            min="1"
+            onChange={({ target: { value } }) => setInputValue(value)}
+            value={inputValue}
+          />
+        </div>
 
-      <div>
-        { !valueIsValid && <p>A quantidade não á válida para esta transação</p>}
-        <button onClick={confirmTransaction} type="button">Confirmar</button>
-      </div>
+        <div>
+          { !valueIsValid() && <p className="span-alert">Quantidade de ações indisponível.</p>}
+        </div>
 
-      <div>
-        <ButtonReturn />
-        <button onClick={() => navigate('/conta')} type="button">Acessar conta</button>
+        <div className="button-row">
+          <ButtonReturn />
+          <button
+            className={`button-secondary${valueIsValid() ? '' : ' disabled'}`}
+            onClick={confirmTransaction}
+            type="button"
+          >
+            Confirmar
+          </button>
+        </div>
       </div>
     </>
   );

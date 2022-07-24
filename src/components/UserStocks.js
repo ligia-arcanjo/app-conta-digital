@@ -15,7 +15,7 @@ function UserStocks() {
   }, []);
 
   return (
-    <>
+    <div className="table-card">
       <h3>Minhas ações</h3>
 
       <table>
@@ -29,19 +29,30 @@ function UserStocks() {
           {
             userStockList ? userStockList.map((stock) => (
               <tr key={stock.id}>
-                <th>{stock.company}</th>
-                <th>{stock.amount}</th>
-                <th>{`R$ ${stock.price}`}</th>
-                <th>
-                  <Link to={`/compra-e-venda/${stock.id}`}>Comprar</Link>
-                  <Link to={`/compra-e-venda/${stock.id}`}>Vender</Link>
-                </th>
+                <td>{stock.company}</td>
+                <td>{stock.amount}</td>
+                <td>{`R$ ${stock.price}`}</td>
+                <td>
+                  <Link
+                    className="link-button link-buy"
+                    to={`/compra-e-venda/${stock.id}`}
+                  >
+                    COMPRAR
+                  </Link>
+
+                  <Link
+                    className="link-button link-sell"
+                    to={`/compra-e-venda/${stock.id}`}
+                  >
+                    VENDER
+                  </Link>
+                </td>
               </tr>
             )) : null
           }
         </tbody>
       </table>
-    </>
+    </div>
   );
 }
 
