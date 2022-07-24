@@ -30,7 +30,7 @@ function ButtonLogin({ isDisabled, userEmail }) {
   }
 
   return (
-    <button hidden={isDisabled} onClick={login} type="button">Entrar</button>
+    <button data-testid="button-login" hidden={isDisabled} onClick={login} type="button">Entrar</button>
   );
 }
 

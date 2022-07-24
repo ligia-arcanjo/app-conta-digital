@@ -23,6 +23,7 @@ function Login() {
         E-mail:
         <input
           id="email"
+          data-testid="input-email"
           placeholder="Digite um e-mail válido"
           type="email"
           value={emailInput}
@@ -34,6 +35,7 @@ function Login() {
         Senha:
         <input
           id="password"
+          data-testid="input-password"
           placeholder="Mínimo de 6 caracteres"
           type="password"
           value={passwordInput}
