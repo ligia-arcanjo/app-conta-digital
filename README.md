@@ -6,6 +6,7 @@
   - [Sumário](#sumário)
   - [Sobre este projeto](#sobre-este-projeto)
     - [O que foi desenvolvido](#o-que-foi-desenvolvido)
+    - [Demonstração da aplicação](#demonstração-da-aplicação)
     - [Tecnologias utilizadas](#tecnologias-utilizadas)
   - [Execução da aplicação](#execução-da-aplicação)
     - [Pré-requisitos](#pré-requisitos)
@@ -58,7 +59,11 @@ Foi desenvolvido o Frontend da aplicação.
    A partir da conta digital, o cliente também pode clicar na opção "Transferir" e será redirecionado para esta tela, onde há um input para digitar o valor que se deseja transferir. Se o valor não for válido, será renderizado em tela um aviso e o botão de "Confirmar" não será habilitado. Quando o valor está correto, o usuário é redirecionado para a página se transação concluída.
 
 8)  Tela transação concluída
-    Quando o cliente consegue realizar qualquer operação, é redirecionado para esta página, onde aparecerá uma mensagem de "Transação realizada com sucesso" e a opção de retornar para página anterior. Além das opções disponíveis no cabeçalho para acesso a conta e fazer logout.
+   Quando o cliente consegue realizar qualquer operação, é redirecionado para esta página, onde aparecerá uma mensagem de "Transação realizada com sucesso" e a opção de retornar para página anterior. Além das opções disponíveis no cabeçalho para acesso a conta e fazer logout.
+
+### Demonstração da aplicação
+
+<img src="./public/app.gif">
 
 ### Tecnologias utilizadas
 
