@@ -62,11 +62,11 @@ Foi desenvolvido o Frontend da aplicação.
 
 ### Tecnologias utilizadas
 
-React v18
-React router v6
-React Testing Library v13
-Testing Library Jest-Dom v5
-CSS
+- React v18
+- React router v6
+- React Testing Library v13
+- Testing Library Jest-Dom v5
+- CSS
 
 ### Estrutura do repositório
 
