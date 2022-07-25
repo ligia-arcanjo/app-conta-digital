@@ -31,7 +31,7 @@ function BuyStocks() {
 
   function confirmTransaction() {
     if (valueIsValid()) {
-      return navigate('/logout');
+      return navigate('/completed');
     }
 
     return false;

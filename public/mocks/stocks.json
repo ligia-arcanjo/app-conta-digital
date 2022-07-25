@@ -1,72 +1,62 @@
 [
   {
     "id": "1",
-    "company": "Empresa1",
-    "amount": 100,
-    "price": 350,
-    "currency": "BRL"
+    "company": "BEEF3",
+    "amount": 413,
+    "price": 13.22
   },
   {
     "id": "2",
-    "company": "Empresa2",
-    "amount": 100,
-    "price": 350,
-    "currency": "BRL"
+    "company": "MOVI3",
+    "amount": 124,
+    "price": 12.77
   },
   {
     "id": "3",
-    "company": "Empresa3",
-    "amount": 100,
-    "price": 350,
-    "currency": "BRL"
+    "company": "MRVE3",
+    "amount": 302,
+    "price": 8.68
   },
   {
     "id": "4",
-    "company": "Empresa4",
-    "amount": 100,
-    "price": 350,
-    "currency": "BRL"
+    "company": "MULT3",
+    "amount": 101,
+    "price": 23.98
   },
   {
     "id": "5",
-    "company": "Empresa5",
-    "amount": 100,
-    "price": 350,
-    "currency": "BRL"
+    "company": "MOVI3",
+    "amount": 124,
+    "price": 12.77
   },
   {
     "id": "6",
-    "company": "Empresa6",
-    "amount": 100,
-    "price": 350,
-    "currency": "BRL"
+    "company": "PETR3",
+    "amount": 108,
+    "price": 31.93
   },
   {
     "id": "7",
-    "company": "Empresa7",
-    "amount": 100,
-    "price": 350,
-    "currency": "BRL"
+    "company": "PETR4",
+    "amount": 107,
+    "price": 29.33
   },
   {
     "id": "8",
-    "company": "Empresa8",
-    "amount": 100,
-    "price": 350,
-    "currency": "BRL"
+    "company": "QUAL3",
+    "amount": 29,
+    "price": 10.43
   },
   {
     "id": "9",
-    "company": "Empresa9",
-    "amount": 100,
-    "price": 350,
-    "currency": "BRL"
+    "company": "RADL3",
+    "amount": 251,
+    "price": 20.30
   },
   {
     "id": "10",
-    "company": "Empresa10",
-    "amount": 100,
-    "price": 350,
-    "currency": "BRL"
+    "company": "SANB11",
+    "amount": 272,
+    "price": 27.53
   }
 ]

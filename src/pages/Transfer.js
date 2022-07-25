@@ -10,26 +10,35 @@ function Transfer() {
   const navigate = useNavigate();
   const [transferValue, setTransferValue] = useState();
   const [accountBalance, setAccountBalance] = useState();
-  const [valueIsCorrect, setValueIsCorrect] = useState(true);
+  const [valueIsValid, setValueIsValid] = useState(true);
+  const localAccBalance = Number(localStorage.getItem('accountBalance'));
+  const validAmount = () => Boolean(transferValue) && transferValue <= accountBalance;
 
   useEffect(() => {
     const getAccount = async () => {
-      const accessInfo = JSON.parse(localStorage.getItem('accessInfo'));
-      const accountData = await getAccountByUser(accessInfo.token);
+      const accountData = await getAccountByUser();
 
       setAccountBalance(accountData.accountBalance);
+      localStorage.setItem('accountBalance', accountData.accountBalance);
     };
 
-    getAccount();
+    if (localAccBalance) {
+      setAccountBalance(localAccBalance);
+    } else {
+      getAccount();
+    }
   });
 
-  const validAmount = () => Boolean(transferValue) && transferValue <= accountBalance;
   function confirmTransaction() {
+    const newAccBalance = localAccBalance - transferValue;
+
     if (!validAmount()) {
-      return setValueIsCorrect(false);
+      return setValueIsValid(false);
     }
 
-    return navigate('/logout');
+    localStorage.setItem('accountBalance', newAccBalance);
+
+    return navigate('/completed');
   }
 
   return (
@@ -47,7 +56,7 @@ function Transfer() {
           />
         </label>
 
-        {!valueIsCorrect && <span className="span-alert">Você não possui saldo para esta transferência!</span>}
+        {!valueIsValid && <span className="span-alert">Você não possui saldo para esta transferência!</span>}
 
         <div className="button-row">
           <ButtonReturn />

@@ -1,4 +1,4 @@
-.logout-card {
+.completed-card {
   display: flex;
   align-self: center;
   flex-direction: column;
@@ -13,15 +13,15 @@
   overflow: hidden;
 }
 
-.logout-card input {
+.completed-card input {
   width: 94%;
 }
 
-.logout-card button {
+.completed-card button {
   width: fit-content;
   align-self: center;
 }
 
-.logout-card .button-row button{
+.completed-card .button-row button{
   margin: 0 10px;
 }

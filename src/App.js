@@ -6,7 +6,7 @@ import Trade from './pages/Trade';
 import Account from './pages/Account';
 import Deposit from './pages/Deposit';
 import Transfer from './pages/Transfer';
-import Logout from './pages/Logout';
+import Completed from './pages/Completed';
 import BuyStocks from './pages/BuyStocks';
 import './style/App.css';
 
@@ -20,7 +20,7 @@ function App() {
       <Route path="/conta" element={<Account />} />
       <Route path="/deposito" element={<Deposit />} />
       <Route path="/transferencia" element={<Transfer />} />
-      <Route path="/logout" element={<Logout />} />
+      <Route path="/completed" element={<Completed />} />
     </Routes>
   );
 }

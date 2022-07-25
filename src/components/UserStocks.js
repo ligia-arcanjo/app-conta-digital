@@ -23,7 +23,7 @@ function UserStocks() {
           <tr>
             <th>Ação</th>
             <th>Quantidade</th>
-            <th>Valor</th>
+            <th>Valor (R$)</th>
             <th>Negociar</th>
           </tr>
           {
@@ -31,7 +31,7 @@ function UserStocks() {
               <tr key={stock.id}>
                 <td>{stock.company}</td>
                 <td>{stock.amount}</td>
-                <td>{`R$ ${stock.price}`}</td>
+                <td>{stock.price}</td>
                 <td>
                   <Link
                     className="link-button link-buy"

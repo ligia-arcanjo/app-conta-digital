@@ -1,23 +1,20 @@
 [
   {
     "id": "1",
-    "company": "Empresa1",
-    "amount": 100,
-    "price": 350,
-    "currency": "BRL"
+    "company": "BEEF3",
+    "amount": 41,
+    "price": 13.22
   },
   {
     "id": "2",
-    "company": "Empresa2",
-    "amount": 100,
-    "price": 350,
-    "currency": "BRL"
+    "company": "MOVI3",
+    "amount": 2,
+    "price": 12.77
   },
   {
     "id": "3",
-    "company": "Empresa3",
-    "amount": 100,
-    "price": 350,
-    "currency": "BRL"
+    "company": "SANB11",
+    "amount": 120,
+    "price": 27.53
   }
 ]

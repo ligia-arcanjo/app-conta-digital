@@ -50,6 +50,7 @@ table tr:hover {
   border-style: solid;
   border-width: 1px;
   border-radius: 2px;
+  letter-spacing: 2px;
 }
 
 .link-buy {

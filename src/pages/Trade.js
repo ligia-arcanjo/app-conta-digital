@@ -32,7 +32,7 @@ function Trade() {
       return setValueIsValid(false);
     }
 
-    return navigate('/logout');
+    return navigate('/completed');
   }
 
   return (

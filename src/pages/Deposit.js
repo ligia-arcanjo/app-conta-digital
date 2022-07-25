@@ -14,7 +14,12 @@ function Deposit() {
       return false;
     }
 
-    return navigate('/logout');
+    const accountBalance = Number(localStorage.getItem('accountBalance'));
+    const newBalance = accountBalance + Number(depositValue);
+
+    localStorage.setItem('accountBalance', newBalance);
+
+    return navigate('/completed');
   };
 
   return (

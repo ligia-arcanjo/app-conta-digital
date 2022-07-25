@@ -2,11 +2,11 @@ import React from 'react';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import renderWithRouter from './utils';
-import Logout from '../pages/Logout';
+import Completed from '../pages/Completed';
 
 describe('Testa a página Logout', () => {
   beforeEach(() => {
-    renderWithRouter(<Logout />);
+    renderWithRouter(<Completed />);
   });
 
   test('verifica se ao renderizar a página é renderizada corretamente', () => {

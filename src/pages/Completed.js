@@ -3,9 +3,9 @@ import { hasUserData } from '../utils/userData';
 import ButtonReturn from '../components/ButtonReturn';
 import Header from '../components/Header';
 
-import '../style/Logout.css';
+import '../style/Completed.css';
 
-function Logout() {
+function Completed() {
   function logout() {
     localStorage.clear();
     window.location = '/';
@@ -15,7 +15,7 @@ function Logout() {
     return (
       <>
         <Header />
-        <div className="logout-card">
+        <div className="completed-card">
           <h3>Transação realizada com sucesso!</h3>
 
           <ButtonReturn />
@@ -27,4 +27,4 @@ function Logout() {
   return logout();
 }
 
-export default Logout;
+export default Completed;

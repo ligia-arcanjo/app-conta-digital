@@ -11,13 +11,19 @@ function Account() {
   const [accountBalance, setAccountBalance] = useState();
 
   useEffect(() => {
+    const localAccBalance = Number(localStorage.getItem('accountBalance'));
     const getAccount = async () => {
       const accountData = await getAccountByUser();
 
       setAccountBalance(accountData.accountBalance);
+      localStorage.setItem('accountBalance', accountData.accountBalance);
     };
 
-    getAccount();
+    if (localAccBalance) {
+      setAccountBalance(localAccBalance);
+    } else {
+      getAccount();
+    }
   });
 
   return (
