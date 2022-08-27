@@ -1,8 +1,8 @@
-# Desafio XP Inc Frontend
+# App Conta Digital
 
 ## Sumário
 
-- [Desafio XP Inc Frontend](#desafio-xp-inc-frontend)
+- [App Conta Digital](#app-conta-digital)
   - [Sumário](#sumário)
   - [Sobre este projeto](#sobre-este-projeto)
     - [O que foi desenvolvido](#o-que-foi-desenvolvido)
@@ -89,8 +89,8 @@ Conforme especificado no ./package.json
 Para rodar a aplicação localmente, faça o clone do repositório e entre na pasta:
 
 ```
-git clone https://github.com/ligia-arcanjo/desafio-xp-inc.git
-cd desafio-xp-inc
+git clone https://github.com/ligia-arcanjo/app-conta-digital.git
+cd app-conta-digital
 ```
 
 Instale as dependências com o comando:
