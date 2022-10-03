@@ -73,8 +73,6 @@ Foi desenvolvido o Frontend da aplicação.
 - Testing Library Jest-Dom v5
 - CSS
 
-### Estrutura do repositório
-
 ## Execução da aplicação
 
 ### Pré-requisitos
